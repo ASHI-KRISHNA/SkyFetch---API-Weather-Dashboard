@@ -13,7 +13,7 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px;
 }
 
@@ -28,6 +28,7 @@ body {
     text-align: center;
     max-width: 500px;
     width: 100%;
+    margin: auto;
 }
 
 h1 {
@@ -53,9 +54,12 @@ h1 {
 
 #city-input {
     padding: 12px 20px;
+    border: 2px solid #ddd;
     border-radius: 25px;
     flex: 1;
     font-size: 1rem;
+    min-width: 0; /* Prevents overflow in flex */
+    transition: border 0.3s;
 }
 
 #city-input:focus {
@@ -64,12 +68,15 @@ h1 {
 }
 
 #search-btn {
-    padding: 12px 30px;
+    padding: 12px 24px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
     border-radius: 25px;
     cursor: pointer;
+    font-size: 1rem;
+    white-space: nowrap;
+    flex-shrink: 0;
     transition: all 0.3s ease;
 }
 
@@ -150,6 +157,7 @@ h1 {
     padding: 12px 20px;
     border-radius: 15px;
     border-left: 6px solid red;
+    text-align: left;
 }
 
 /* =========================
@@ -169,13 +177,13 @@ h1 {
 
 .forecast-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
 }
 
 .forecast-card {
     background: linear-gradient(135deg, #74ebd5, #9face6);
-    padding: 20px;
+    padding: 15px 10px;
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -191,28 +199,28 @@ h1 {
 }
 
 .forecast-day {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #333;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .forecast-temp {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     color: #667eea;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 8px 0;
 }
 
 .forecast-desc {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #666;
     text-transform: capitalize;
 }
 
 .forecast-icon {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 }
 
 /* =========================
@@ -221,6 +229,18 @@ h1 {
 .recent-searches-section {
     margin: 20px 0;
     display: none;
+}
+
+.recent-searches-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.recent-searches-header h4 {
+    font-size: 0.95rem;
+    color: #555;
 }
 
 #recent-searches-container {
@@ -266,6 +286,34 @@ h1 {
 }
 
 /* =========================
+   WELCOME MESSAGE
+========================= */
+.welcome-message {
+    padding: 20px 10px;
+}
+
+.welcome-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.welcome-message h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.welcome-message p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.welcome-examples span {
+    font-weight: 600;
+    color: #667eea;
+}
+
+/* =========================
    ANIMATIONS
 ========================= */
 @keyframes fadeIn {
@@ -286,25 +334,221 @@ h1 {
 }
 
 /* =========================
-   RESPONSIVE
+   TABLET (max-width: 768px)
 ========================= */
 @media (max-width: 768px) {
+    body {
+        padding: 16px;
+        align-items: flex-start;
+    }
+
+    .container {
+        padding: 28px 24px;
+        border-radius: 16px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 0.9rem;
+        margin-bottom: 24px;
+    }
+
+    .search-section {
+        gap: 0.75rem;
+        margin-bottom: 20px;
+    }
+
+    #city-input {
+        padding: 11px 16px;
+        font-size: 0.95rem;
+    }
+
+    #search-btn {
+        padding: 11px 20px;
+        font-size: 0.95rem;
+    }
+
+    .temperature {
+        font-size: 3rem;
+    }
+
+    .city-name {
+        font-size: 1.75rem;
+    }
+
     .forecast-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 12px;
     }
 
     .forecast-card {
-        padding: 15px;
+        padding: 14px 10px;
         border-radius: 12px;
     }
 
     .forecast-temp {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .forecast-icon {
-        width: 50px;
-        height: 50px;
+        width: 48px;
+        height: 48px;
+    }
+}
+
+/* =========================
+   MOBILE (max-width: 480px)
+========================= */
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+
+    .container {
+        padding: 24px 16px;
+        border-radius: 14px;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    .tagline {
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+    }
+
+    /* Stack search on very small screens */
+    .search-section {
+        flex-direction: column;
+        gap: 0.6rem;
+        margin-bottom: 16px;
+    }
+
+    #city-input {
+        width: 100%;
+        padding: 12px 18px;
+        font-size: 1rem;
+    }
+
+    #search-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .weather-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .temperature {
+        font-size: 2.5rem;
+        margin: 14px 0;
+    }
+
+    .city-name {
+        font-size: 1.5rem;
+    }
+
+    .description {
+        font-size: 1.1rem;
+    }
+
+    .forecast-section {
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+
+    .forecast-title {
+        font-size: 1.2rem;
+        margin-bottom: 14px;
+    }
+
+    .forecast-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    /* Make the 5th card span full width if it's alone */
+    .forecast-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        max-width: 160px;
+        margin: 0 auto;
+    }
+
+    .forecast-card {
+        padding: 12px 8px;
+        border-radius: 12px;
+    }
+
+    .forecast-day {
+        font-size: 0.9rem;
+    }
+
+    .forecast-temp {
+        font-size: 1.2rem;
+        margin: 6px 0;
+    }
+
+    .forecast-desc {
+        font-size: 0.75rem;
+    }
+
+    .forecast-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .recent-search-btn {
+        padding: 7px 13px;
+        font-size: 0.85rem;
+    }
+
+    .welcome-message h2 {
+        font-size: 1.3rem;
+    }
+
+    .welcome-icon {
+        font-size: 2.5rem;
+    }
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* =========================
+   VERY SMALL (max-width: 360px)
+========================= */
+@media (max-width: 360px) {
+    .container {
+        padding: 20px 12px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .temperature {
+        font-size: 2.2rem;
+    }
+
+    .forecast-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .forecast-card {
+        padding: 10px 6px;
+    }
+
+    .forecast-temp {
+        font-size: 1.1rem;
     }
 }
