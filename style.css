@@ -84,3 +84,63 @@ h1 {
     width: 100px;
     height: 100px;
 }
+.search-section{
+    margin-bottom: 30px;
+    display: flex;
+    gap: 1rem;
+}
+#city-input{
+    padding: 12px 20px;
+    border-radius: 25px;
+    flex: 1;
+    font-size: 1rem;
+}
+#city-input:focus{
+    border-color: rgb(102, 126, 234);
+}
+#search-btn{
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+#search-btn:hover{
+    background: rgba(102, 126, 234,0.6);
+}
+.error-message{
+    background: lightpink;
+    color: darkred;
+    padding:12px 20px;
+    border-radius: 25px;
+    border-left: 12px red;
+}
+/* Spinner itself */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;        /* light gray */
+  border-top: 5px solid #667eea;    /* accent color */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Spin animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Container for spinner + text */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
