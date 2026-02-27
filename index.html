@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,27 +11,33 @@
     <div class="container">
         <h1>🌤️ SkyFetch</h1>
         <p class="tagline">Your Personal Weather Dashboard</p>
+
         <div class="search-section">
-            <input id="city-input" type="text" placeholder="Enter city name...">
-            <!-- TODO: Create an input field -->
-            <!-- - type: text -->
-            <!-- - id: city-input -->
-            <!-- - placeholder: "Enter city name..." -->
+            <input
+                id="city-input"
+                type="text"
+                placeholder="Enter city name..."
+            >
             <button id="search-btn">🔍 Search</button>
-            <!-- TODO: Create a search button -->
-            <!-- - id: search-btn -->
-            <!-- - text: "Search" or "🔍 Search" -->
         </div>
+
+        <div id="recent-searches-section" class="recent-searches-section">
+            <div class="recent-searches-header">
+                <h4>Recent Searches</h4>
+                <button id="clear-history-btn" class="clear-history-btn">
+                    Clear
+                </button>
+            </div>
+
+            <div id="recent-searches-container"></div>
+        </div>
+
         <div id="weather-display">
             <p class="loading">Loading weather data...</p>
         </div>
     </div>
 
-    <!-- Axios CDN -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-    <!-- Your JavaScript -->
     <script src="app.js"></script>
 </body>
-
 </html>
